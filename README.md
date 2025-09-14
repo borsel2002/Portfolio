@@ -154,13 +154,21 @@ The application uses Prisma ORM with SQLite by default. To use a different datab
 
 ## Deployment Options
 
-### Vercel (Recommended)
+### AWS (Recommended for Production)
+1. **Quick Deploy**: Run `./scripts/deploy-aws.sh`
+2. **Manual Deploy**: Follow [AWS Deployment Guide](AWS-DEPLOYMENT.md)
+3. **Features**: Auto-scaling, managed database, CDN, monitoring
+4. **Cost**: ~$50-100/month for production setup
+
+### Docker (Any Cloud Provider)
+1. Use `docker-compose.yml` for local testing
+2. Use `Dockerfile` for production deployment
+3. Works on AWS ECS, Google Cloud Run, Azure Container Instances
+
+### Vercel (Quick Start)
 1. Connect your GitHub repository to Vercel
 2. Set environment variables in Vercel dashboard
 3. Deploy automatically on push to main branch
-
-### Docker
-Use the provided `Dockerfile` and `docker-compose.yml` for containerized deployment on any VPS or cloud provider.
 
 ### Traditional VPS
 1. Set up Node.js environment on your server
