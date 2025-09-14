@@ -19,7 +19,8 @@ export interface FeatureFlags {
 
 export async function getSiteConfig(): Promise<SiteConfig | null> {
   try {
-    return await get('siteConfig')
+    const config = await get('siteConfig')
+    return config || null
   } catch (error) {
     console.log('Edge Config not available')
     return null
@@ -28,7 +29,8 @@ export async function getSiteConfig(): Promise<SiteConfig | null> {
 
 export async function getFeatureFlags(): Promise<FeatureFlags | null> {
   try {
-    return await get('featureFlags')
+    const flags = await get('featureFlags')
+    return flags || null
   } catch (error) {
     console.log('Edge Config not available')
     return null
@@ -37,7 +39,8 @@ export async function getFeatureFlags(): Promise<FeatureFlags | null> {
 
 export async function getMaintenanceMode(): Promise<boolean> {
   try {
-    return await get('maintenanceMode') || false
+    const mode = await get('maintenanceMode')
+    return mode || false
   } catch (error) {
     return false
   }
